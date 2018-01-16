@@ -1,22 +1,13 @@
+def wsgi_app(environ, start_response):
+    status = '200 OK'
+    response_headers = [('Content-type', 'text/plain')]
+    start_response(status, response_headers)
+    response_body = 'Hello World'
+    yield response_body.encode()
 
-from flask import Flask, render_template, request, session
-from flask_pymongo import PyMongo
-from pymongo import MongoClient
-import urllib.request
-import json
-from bs4 import BeautifulSoup
-from bson import ObjectId
-from bson.son import SON
 
-from selenium import webdriver
-import time
+if __name__ == '__main__':
+    from wsgiref.simple_server import make_server
 
-app = Flask(__name__)
-mongo = PyMongo(app)
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-if __name__ == "__main__":
-    app.run()
+    httpd = make_server('localhost', 5555, wsgi_app)
+    httpd.serve_forever()
