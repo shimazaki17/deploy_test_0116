@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- CSSファイルを追加 -->
+    <link rel="stylesheet" href="/static/app.css">
+    <!-- JSファイルを追加 -->
+    <script type="text/javascript" src="/static/app.js"></script>
+</head>
+<body>
+    <!-- 画像読み込みを追加 -->
+    <!-- <h1><img src="/static/logo.png"></h1>
+    <p>{{ message }}</p> -->
+
+<div class="instruction">
+  <p class="instruction">読みたい規約のURLを以下にご記入ください。</p>
+</div>
+
+<form action="/post" method="post" class="form-inline">
+  <label for="url">URL</label>
+  <input type="url" class="form-control" id="url" name="url" placeholder="https//" size="50">
+  <button type="submit" class="btn btn-default">送信</button>
+</form>
+
+</body>
+</html>

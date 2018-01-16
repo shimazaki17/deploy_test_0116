@@ -1,0 +1,112 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <!-- rating YO  -->
+  <script src="http://code.jquery.com/jquery-3.1.1.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+  <script>
+
+
+     var htmlText="1";
+     $(function () {
+        {% for value in values -%}
+
+        htmlText += <input type="submit" name= "values" value="{{value}}">;
+        {%- endfor %}
+                $(".rateYo").append(htmlText);
+      });
+
+  </script>
+
+  <style>
+    .header {
+      /* background: red; */
+      display: flex;
+    }
+
+    .articles {
+      background: blockquote margin-left: 0px;
+    }
+
+    .importance {
+      background: lightgreen;
+    }
+
+    .text-muted {
+      text-align: center;
+      font-size: 28px
+    }
+
+    /* .main{
+      width: 500px;
+      background:lightgreen;
+    }
+
+    .sub{
+      width:200px;
+      background:red;
+    } */
+
+    .container {
+      display: flex;
+    }
+
+    .Sentences {
+      float: left;
+      width: 800px;
+      background: lightgreen;
+    }
+
+    .Feedback {
+      width: 200px;
+      background: red;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <h3 class="text-muted">（サービス名）</h3>
+
+   {% for value in values %}
+  <table class = "container">
+    <tr class= "Sentences">
+      <td >{{value}}</td>
+    </tr>
+    <tr class= "Feedback">
+      <td>
+        <input type="radio" name="q1" value="レベル1"> 要注意！
+        <input type="radio" name="q2" value="レベル2"> ふつう
+      </td>
+    </tr>
+  </table>
+  {% endfor %} -->
+
+  <!-- <div class="rateYo"><p> {{values}}</p></div> -->
+
+  <div class="button">ボタン</div>
+  <div class="rateYo"></div>
+  <div class="radio"></div>
+
+  <!-- <div class="container">
+      <div class="header">
+        <div class="Sentences">
+          <h4 class="text-muted">Sentences</h4>
+          {% for value in values %}
+          <div class="rateYo">{{value}}</div>
+          {% endfor %}
+        </div>
+        </div>
+        <div class="Feedback">
+          <h4 class="text-muted">Feedback</h4>{% for value in values %}
+          <p><input type="radio" name="q1" value="レベル1"> 要注意！
+             <input type="radio" name="q1" value="レベル2"> ふつう</p>
+                 {% endfor %}
+        </div>
+
+     </div> -->
+</body>
+
+</html>
